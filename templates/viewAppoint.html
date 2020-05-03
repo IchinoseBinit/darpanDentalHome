@@ -1,0 +1,35 @@
+{% extends 'appoint.html' %}
+
+{% block content %}
+<center>
+    <div class="container">
+        {% if apps.count > 0 %}
+        <div class="row">
+            <h2>{{user.username}}'s Appointments</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <table style="width:100%; border=2px solid black;">
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Treatment</th>
+                    <th>Date Time</th>
+                </tr>
+                {% for app in apps %}
+                <tr>
+                    <td>{{app.id}}</td>
+                    <td>{{app.treatment}}</td>
+                    <td>{{app.appointmentDate}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        </div>
+        {% else %}
+            {% for message in messages %}
+                <h3>{{message}}</h3>
+            {% endfor %}
+        {% endif %}
+    </div>
+</center>
+{% endblock  %}

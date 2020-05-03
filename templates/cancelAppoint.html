@@ -1,0 +1,30 @@
+{% extends 'appoint.html' %}
+
+{% block content %}
+<center>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="font-size:20px; font-weight:bold;">Cancel Appointment</div>
+            <div class="panel-body">
+                <form action="cancelAppointment" method="post">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Appointment ID</label>
+                                <input type="text" class="form-control" name="appointmentId">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" style="padding-bottom:2.5%" class="btn btn-primary" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+     <div>
+    {% for message in messages %}
+        <h3> message</h3>   
+    {% endfor %}
+    </div>
+</center>
+{% endblock  %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid" style="margin: 0; padding: 0;">
+        <div class="row">
+            <div class="col-md-6">
+                <div style="background-image: url({% static 'images/dental.jpg'%}); width:100vh; height:80vh; background-repeat:no-repeat;">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="margin-left:5%;">
+                    <h1> Welcome to Darpan Dental Home </h1>
+                    <br>
+                    <br>
+                    <h2> Hello {{user.username}}</h2>
+                    <h4> You had lastly joined us in, {{user.last_login}} </h4>
+                    <br>
+                    <br>
+                    <br>
+                    <h5> Would you like to see your appointments? </h5>
+                    <a href="appoint/viewAppointment" class="btn btn-primary">View Appointments </a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h5> Would you like to see your Reports? </h5>
+                    <a href="report/" class="btn btn-primary">View Reports </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

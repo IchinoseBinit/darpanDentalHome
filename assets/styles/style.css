@@ -1,0 +1,111 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    background-color:  #f9f8b8;
+}
+
+.content{
+    width: 90%;
+    margin: auto;
+}
+.brand{
+    display: flex;
+    padding-top:10px;
+}
+.brand img{
+    margin-left:70%;
+}
+img{
+    border: black 2px solid;
+    padding:5px;
+    border-radius: 50%;}
+.brand p{
+    margin:0px;
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.middle-content{
+    display: flex;
+}
+.greetings{
+    margin-top:50px;
+    width: 70%;
+}
+.first{
+    font-size: 40px;
+}
+.second{
+    font-size: 20px;
+}
+.form{
+    width: 30%;
+    margin-top: 100px;
+}
+input{
+    border-radius: 5px;
+    border: rgb(192, 192, 192) 0.5px solid;
+    height:24px;
+    width: 60%;
+    margin-bottom:16px;
+    color:rgb(2, 3, 10);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+input[placeholder]{
+    padding: 3px 8px 3px 8px;
+
+}
+.submit-button input{
+    color: black;
+}
+.submit-button input:hover{
+    cursor:pointer;
+    border-color: rgb(20, 48, 212);
+    color:rgb(255, 255, 255);
+}
+.submit-button a{
+    font-size: 14px;
+    padding-left: 40px;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+}
+.submit-button a:hover{
+    color:lightblue;
+    text-decoration: underline;
+}
+.contain{
+    display: flex;
+}
+.service-one{
+    width: 25%;
+    text-align: center;
+}
+.service-two{
+    width: 25%;
+    text-align: center;
+}
+.service-three{
+    width: 25%;
+    text-align: center;
+}
+.service-fourth{
+    width: 25%;
+    text-align: center;
+}
+
+.contact-one{
+    width: 34%;
+    text-align: center;
+}
+.contact-two{
+    width: 33%;
+    text-align: center;
+}
+.contact-three{
+    width: 33%;
+    text-align: center;
+}

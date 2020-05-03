@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darpan Dental Home</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css'%}">
+</head>
+<body style="background:white">
+    <div>
+        <div class="content">
+            <div class="navigation-bar">
+                <div class="brand"><p>Darpan Dental Home</p>
+                    <img src="{% static 'images/logo.svg' %}" alt="" height=40px ></div>
+            </div>
+            <div class="middle-content">
+                <div class="greetings">
+                    <p class="first">
+                        Welcome
+                    </p>
+                    <p class="second">
+                        Do you have any dental problems?
+                    </p>
+                    <p class="second">
+                        If so,
+                    </p>
+                    <p class="second">
+                        You can always remember us.
+                    </p>
+                </div>
+
+                <div class="form">
+                    <h2>View your Dashboard</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Enter your username" name="username">
+                        <input type="password" placeholder="Enter password" name="password">
+                        <div class="submit-button">
+                            <input type="submit" value="Login" style="width:100px;">
+                            <a style="color: purple; padding: 0; margin:0; font-size: 20px; font-weight:bold;" href="register"><u>Register Now!</u></a>
+                            <p style="color: black; padding: 0; margin:0;">Login In As Admin?, <a style="color: purple; padding: 0; margin:0; font-size: 20px; font-weight:bold;" href="admin/">Admin</a></p>
+                            
+                            
+                            
+                            {% comment %} <input type="submit" value="Register For Free" style="width:200px;"> {% endcomment %}
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>  
+    </div>
+    
+    <div>
+        {%for message in messages%}
+            <h3> {{message}} </h3>
+        {% endfor %}
+    </div>
+    
+    <section style="background:#f9f8b8;" class="service">
+    <br>
+        <div class="topic" style="text-align: center;"><h1>Our Speciality</h1></div>
+        <div class="contain">
+            <div class="service-one">
+                <div class="image">
+                    <img src="{% static 'images/24-hours.png' %}" alt="" height="60px">
+                </div>
+                <h3>24-Hours Service</h3>
+            </div>
+            <div class="service-two">
+                <div class="image">
+                    <img src="{% static 'images/expert.png' %}" alt="" height="60px">
+                </div>
+                <h3>Srugery From Expert</h3>
+            </div>
+            <div class="service-three">
+                <div class="image">
+                    <img src="{% static 'images/latest technology.jpg' %}" alt="" height="60px">
+                </div>
+                <h3>Latest Technology</h3>
+            </div>
+            <div class="service-fourth">
+                <div class="image">
+                    <img src="{% static 'images/affordable price.png' %}" alt="" height="60px">
+                </div>
+                <h3>Affordable Price</h3>
+            </div>
+        </div>
+        <div class="topic" style="text-align: center;"><h1>Our Contacts</h1></div>
+        <div class="contain">
+            <div class="contact-one">
+                <div class="image">
+                    <img src="{% static 'images/email.png' %}" alt="" height="60px">
+                </div>
+                <h3>contactUs@darpandental.com.np</h3>
+            </div>
+            <div class="contact-two">
+                <div class="image">
+                    <img src="{% static 'images/phone.png' %}" alt="" height="60px">
+                </div>
+                <h3>+977 9845612342</h3>
+            </div>
+            <div class="contact-three">
+                <div class="image">
+                    <img src="{% static 'images/address.png' %}" alt="" height="60px">
+                </div>
+                <h3>Bhanu Chowk, Dharan</h3>
+            </div>
+        </div>
+        <br>
+    </section>
+    <center>
+    <footer>
+        <p>
+            <small style="font-size:18px;"><i>
+                &copy; Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved Designed by 
+                <span> Darpan Dental Home</span></i>
+            </small>
+        </p>			
+    </footer>
+    </center>
+</body>
+</html>

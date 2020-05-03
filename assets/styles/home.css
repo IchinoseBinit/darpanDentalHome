@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding:0;
+}
+
+.navigation-bar{
+    padding-left:10px;
+}
+.navigation-bar h4{
+    margin:0;
+    padding:20px 0 20px 0;
+    color:white;
+}
+.nav-link:hover{
+    color: white;
+}
+.navigation-bar .brand{
+    display: flex;
+}
+.brand img{
+    padding-left:70%;
+    padding-top:30px;
+    filter: invert(1);
+}
+.logout{
+    padding:10px;
+}
+.logout a{
+    padding:10px;
+}
+.logout a:hover{
+    text-decoration: none;
+    color: white;
+    border: white 0.5px solid;
+    border-radius: 5px;
+}
+.row{
+    padding-top: 50px;
+    width:90%;
+    margin:auto;
+}
+.single-row{
+    display: flex;
+}
+p{
+    margin: 0;
+    padding:2px;
+}
+#image{
+    text-align: center;
+}
+.col img{
+    border-radius: 50%;
+    border:black 0.5px solid;
+}

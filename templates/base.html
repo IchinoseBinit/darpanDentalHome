@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darpan Dental Home</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+    <style>
+    a{
+    color: white;
+    font-size:16px;
+    font-weight:400;
+    font-family:Open Sans;
+    }
+    </style>
+</head>
+<body>
+    <div class="navigation-bar" style="background-color: #444;">
+        <div class="brand">
+        <h4>Darpan Dental Home</h4>
+        <img src="{% static '/images/logo.svg' %}" alt="" height=70px>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link" href="profile">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manage Appointments</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="appoint/makeAppointment">Make Appointment</a>
+                <a class="dropdown-item" href="appoint/updateAppointment">Update Appointment</a>
+                <a class="dropdown-item" href="appoint/viewAppointment">View Appointment</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="appoint/cancelAppointment">Cancel Appointment</a>
+            </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="report/">View Report</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#modalRegisterForm">Feedback</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="modal" data-target="#modalPay">Payment</a>
+            </li>
+            <li class="logout">
+                <a href="logout">Logout</a>
+            </li>
+            
+        </ul>
+    </div>
+
+     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Send Feedback</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="feedback/" method="post">
+            {% csrf_token %}
+            <div class="modal-body mx-3">
+                <div class="md-form mb-4">
+                <i class="fas fa-user prefix grey-text"></i>
+                <textarea name="feedback"cols="30" rows="7" class="form-control validate" placeholder="Write Your Feedback Here" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <input type="Submit" value="Send" class="btn btn-success">
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Choose your means of Payment</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-4">
+                <i class="fas fa-user prefix grey-text"></i>
+                <label>Your Fee: Rs.<span style="color:black; font-weight:bold;"> 3000</span> </label>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <a class="btn btn-success" href="pay/esewa">Pay Through Esewa</a>
+                <a class="btn btn-success" href="pay/card">Pay Through Card</a>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <center>
+    <footer>
+        <p>
+            <small style="font-size:18px;"><i>
+                &copy; Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved Designed by 
+                <span> Darpan Dental Home</span></i>
+            </small>
+        </p>			
+    </footer>
+    </center>
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="single-row">
+                    <h2>Name: </h2>
+                    <h2>{{user.first_name}} {{user.last_name}}</h2>
+                </div>
+                <div class="single-row">
+                    <h3>Age:</h3>
+                    <h3>{{patient.age}}</h3>
+                </div>
+                <div class="single-row">
+                    <h3>Address:</h3>
+                    <h3>{{patient.address}}</h3>
+                </div>
+                <div class="single-row">
+                    <h3>Phone:</h3>
+                    <h3>{{patient.phoneNumber}}</h3>
+                </div>
+                <div class="single-row">
+                    <h3>Email:</h3>
+                    <h3>{{user.email}}</h3>
+                </div>
+                <div class="single-row">
+                    <h3>D.O.B.:</h3>
+                    <h3>{{patient.dateOfBirth}}</h3>
+                </div>
+                <div class="single-row">
+                    <h3>Reminder Date:</h3>
+                    <h3>{{patient.reminderDate}}</h3>
+                </div>
+                <div>
+                    <div class="modal fade" id="UpdateForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title w-100 font-weight-bold">Update Profile</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="profile" method="post">
+                        {% csrf_token %}
+                        <div class="modal-body mx-3">
+                            <div class="md-form mb-4">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <input type="text" name="age" class="form-control validate" placeholder="Age">
+                            </div>
+                            <div class="md-form mb-4">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <input type="text" name="address" class="form-control validate" placeholder="Address">
+                            </div>
+                            <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <input type="text" name="phone" class="form-control validate" placeholder="Phone Number">
+                            </div>
+                            <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <input type="text" name="dob" class="form-control validate" placeholder="Date Of Birth">
+                            </div>
+                            <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <input type="text" name="reminder" class="form-control validate" placeholder="Reminder Date">
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <input type="Submit" value="Update" class="btn btn-success">
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="text-center">
+                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#UpdateForm">Update Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col" id="image">
+                <img src="{%static 'images/person.png'%}" alt="" height="200px">
+            </div>
+        </div>
+        <center>
+            <div>
+                {% for message in messages %}
+                    <h3>{{message}}</h3>
+                {% endfor %}
+            </div>
+        </center>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>    
+{% endblock content %}
