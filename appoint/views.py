@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_control
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def makeAppoint(request):
     if request.method == 'GET':
         return render(request, 'makeAppoint.html')
@@ -19,7 +19,7 @@ def makeAppoint(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def updateAppoint(request):
     if request.method == 'GET':
         return render(request, 'updateAppoint.html')
@@ -41,7 +41,7 @@ def updateAppoint(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)        
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def viewAppoint(request):
     if Appoint.objects.filter(patientId=request.user.id).exists():
         appointments = Appoint.objects.filter(patientId=request.user.id)
@@ -52,7 +52,7 @@ def viewAppoint(request):
     
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def cancelAppoint(request):
     if request.method == 'GET':
         return render(request, 'cancelAppoint.html')

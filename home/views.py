@@ -9,13 +9,13 @@ from django.views.decorators.cache import cache_control
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def home(request):
     return render(request, 'home.html')
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def profile(request):
     if request.method == "GET":
         if Profile.objects.filter(patientId=request.user.id).exists():
@@ -44,14 +44,14 @@ def profile(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def logout(request):
     auth.logout(request)
     return redirect('/')
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def esewa(request):
     if request.method == "GET":
         return render(request, 'esewa.html')
@@ -60,7 +60,7 @@ def esewa(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def card(request):
     if request.method == "GET":
         return render(request, 'card.html')

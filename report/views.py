@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_control
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login/')
+@login_required(login_url='/login')
 def report(request):
     if Report.objects.filter(patientId=request.user.id).exists:
         reports=Report.objects.filter(patientId=request.user.id)
