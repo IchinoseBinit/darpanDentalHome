@@ -4,26 +4,20 @@ from django.contrib import messages, auth
 # Create your views here.
 def login(request):
     if request.method == 'GET':
-        print ("HI")
         return render(request, 'login.html')
         
     else:
         username = request.POST['username']
         password = request.POST['password']
-        print ("Hi minnasan")
         user = auth.authenticate(username=username, password=password)
-        print (user)
         myUser = User.objects.all()
-        for u in myUser:
-            print(u.password)
-        if user is not None:
-            auth.login(request, user)
-            print("Logged in")
-            return redirect('/home')
-        else:
-            messages.info(request, "Invalid Credentials")
-            print ("Unable")
-            return render(request, 'login.html')
+        for user in myUser:
+            if user is not None:
+                auth.login(request, user)
+                return redirect('/home')
+            else:
+                messages.info(request, "Invalid Credentials")
+                return render(request, 'login.html')
 
         
 
@@ -47,8 +41,7 @@ def register(request):
                 return render(request, 'register.html')
             else:
                 dest = User.objects.create_user(username=username, email=email, password=password1, first_name=first_name, last_name=last_name)
-                dest.save();
-                print("User Created")
+                dest.save()
                 return redirect('/')
         else:
             messages.info(request,"Password unmatched")

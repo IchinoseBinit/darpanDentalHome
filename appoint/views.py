@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_control
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def makeAppoint(request):
     if request.method == 'GET':
         return render(request, 'makeAppoint.html')
@@ -19,7 +19,7 @@ def makeAppoint(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def updateAppoint(request):
     if request.method == 'GET':
         return render(request, 'updateAppoint.html')
@@ -28,9 +28,8 @@ def updateAppoint(request):
         treatment=request.POST['treatment']
         date=request.POST['appointmentDate']
         if Appoint.objects.filter(patientId=request.user.id).exists():
-            if Appoint.objects.filter(appointmentId=id).exists:
-                Appoint.appointmentDate=date
-                Appoint.treatment=treatment
+            if Appoint.objects.filter(id=id).exists:
+                Appoint.objects.filter(id=id).update(appointmentDate=date, treatment=treatment)
                 return redirect('/home')
             else:
                 messages.info(request,"Wrong Appointment Id")
@@ -41,7 +40,7 @@ def updateAppoint(request):
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)        
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def viewAppoint(request):
     if Appoint.objects.filter(patientId=request.user.id).exists():
         appointments = Appoint.objects.filter(patientId=request.user.id)
@@ -52,7 +51,7 @@ def viewAppoint(request):
     
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def cancelAppoint(request):
     if request.method == 'GET':
         return render(request, 'cancelAppoint.html')
